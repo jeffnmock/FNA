@@ -40,6 +40,30 @@ namespace Microsoft.Xna.Framework.Graphics
 			private set;
 		}
 
+		/// <summary>
+		/// On Windows, the primary DXGI adapter description (e.g.
+		/// "NVIDIA GeForce RTX 5080"), reflecting the GPU the calling process is
+		/// actually rendering with — honors Windows per-app GPU preferences.
+		/// On other platforms, returns null. Distinct from <see cref="Description"/>,
+		/// which on FNA is the SDL display (monitor) name. Lazy-evaluated on first
+		/// access; same value for every <see cref="GraphicsAdapter"/> instance in
+		/// the process because all monitors share one D3D device.
+		/// </summary>
+		public string AdapterDescription
+		{
+			get
+			{
+				if (!_adapterDescriptionLoaded)
+				{
+					_adapterDescription = WindowsAdapterInfo.GetPrimaryAdapterDescription();
+					_adapterDescriptionLoaded = true;
+				}
+				return _adapterDescription;
+			}
+		}
+		private static string _adapterDescription;
+		private static bool _adapterDescriptionLoaded;
+
 		public int DeviceId
 		{
 			get

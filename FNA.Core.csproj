@@ -138,6 +138,7 @@
 		<Compile Include="src\FNAPlatform\FNAWindow.cs" />
 		<Compile Include="src\FNAPlatform\SDL2_FNAPlatform.cs" />
 		<Compile Include="src\FNAPlatform\SDL3_FNAPlatform.cs" />
+		<Compile Include="src\FNAPlatform\WindowsAdapterInfo.cs" />
 		<Compile Include="src\FrameworkDispatcher.cs" />
 		<Compile Include="src\Game.cs" />
 		<Compile Include="src\GameComponent.cs" />
