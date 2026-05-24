@@ -133,9 +133,11 @@ namespace Microsoft.Xna.Framework.Graphics
 								DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE;
 
 						// IDXGIFactory6 vtable slot 29: EnumAdapterByGpuPreference.
-						// (Slots 0-12 from IDXGIFactory1, 13 IsCurrent, 14-24 IDXGIFactory2,
-						// 25 GetCreationFlags (Factory3), 26-27 Factory4, 28 CheckFeatureSupport
-						// (Factory5), 29 EnumAdapterByGpuPreference. Layout confirmed against
+						// (Slots 0-11 IDXGIFactory base interfaces, 12-13 IDXGIFactory1
+						// (EnumAdapters1, IsCurrent), 14-24 IDXGIFactory2, 25
+						// GetCreationFlags (Factory3), 26-27 Factory4 (EnumAdapterByLuid,
+						// EnumWarpAdapter), 28 CheckFeatureSupport (Factory5), 29
+						// EnumAdapterByGpuPreference. Layout confirmed against
 						// FNA3D_Driver_D3D11.h:730-886.)
 						Guid adapterGuid = IID_IDXGIAdapter1;
 						IntPtr adapterOut;
